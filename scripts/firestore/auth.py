@@ -26,6 +26,7 @@ def login(mail, pwd):
     doc = get_user(mail)
     if doc is not None:
         if doc['Password'] == encrypt_password(pwd):
+            del doc['Password']
             return doc
     return None
 

@@ -1,0 +1,25 @@
+syntax = "proto3";
+package pb;
+
+message Ambassador {
+  string mail =1;
+  string password = 2;
+  string phone  = 3;
+  string name  = 4;
+  string surname =5;
+  //The school on which the ambassador studies
+  string institution =6;
+}
+message User {
+  string mail =1;
+  string  password =2;
+}
+message Token{
+  string payload = 1;
+}
+service AuthService {
+  rpc CreateUser(Ambassador) returns (Token);
+  rpc Login(User) returns (Token);
+}
+
+
